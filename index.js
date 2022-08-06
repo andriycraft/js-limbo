@@ -3,10 +3,11 @@ const Chunk = require('prismarine-chunk')('1.16.3')
 const Vec3 = require('vec3')
 const config = require('./config.json')
 const server = mc.createServer({
-  'online-mode': true,
+  'online-mode': config.onlinemode,
   encryption: true,
   host: config.host,
   port: config.port,
+  motd: config.motd,
   version: '1.16.3'
 })
 const mcData = require('minecraft-data')(server.version)
@@ -41,6 +42,9 @@ server.on('login', function (client) {
     isDebug: false,
     isFlat: false
   })
+  
+  client.registerChannel('brand', ['string'])
+  client.writeChannel('brand', `AC 2.0 Limbo Server (1). Info at: https://github.com/andriycraft/js-limbo/`)
   
   client.write('map_chunk', {
     x: 0,
