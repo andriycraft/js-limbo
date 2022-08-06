@@ -8,7 +8,8 @@ const server = mc.createServer({
   host: config.host,
   port: config.port,
   motd: config.motd,
-  version: '1.16.3'
+  version: '1.16.3',
+  maxPlayers: config.maxPlayers
 })
 const mcData = require('minecraft-data')(server.version)
 const loginPacket = mcData.loginPacket
@@ -22,6 +23,22 @@ for (let x = 0; x < 16; x++) {
       chunk.setSkyLight(new Vec3(x, y, z), 15)
     }
   }
+}
+
+function chat(client, message) {
+  client.write('chat', { message: JSON.stringify(message), position: 0, sender: '0' })
+}
+
+
+const date = new Date()
+const id = Math.floor(Math.random() * 1000000)
+
+function log(message, type) {
+  if (config.enableLogging) { 
+    fs.appendFile(`./logs/Limbo-server_${id}`, `${type}: ${message}\n`, function (err) { })
+  }
+  if (!config.enableConsole) { return }
+  console.log(`${type}: ${message}`)
 }
 
 server.on('login', function (client) {
@@ -46,6 +63,14 @@ server.on('login', function (client) {
   client.registerChannel('brand', ['string'])
   client.writeChannel('brand', `AC 2.0 Limbo Server (1). Info at: https://github.com/andriycraft/js-limbo/`)
   
+  
+  const header = { text: config.tabheader }
+  const footer = { text: config.tabfooter }
+  client.write('playerlist_header', {
+    header: JSON.stringify(header),
+    footer: JSON.stringify(footer)
+  })
+  
   client.write('map_chunk', {
     x: 0,
     z: 0,
@@ -60,6 +85,9 @@ server.on('login', function (client) {
     chunkData: chunk.dump(),
     blockEntities: []
   })
+  
+  chat(client, config.welcomemsg)
+  
   
   client.write('position', {
     x: 15,
