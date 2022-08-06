@@ -7,5 +7,7 @@
   "gamemode": 1,
   "worldname": "minecraft:overworld",
   "tabheader": "Limbo server.",
-  "tabfooter": "AC 2.0's limbo server"
+  "tabfooter": "AC 2.0's limbo server",
+  "maxPlayers": -1,
+  "welcomemsg": "Welcome to Limbo. This server is using JS-Limbo by andriycraft"
 }
