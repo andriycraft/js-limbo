@@ -1,0 +1,9 @@
+{
+  "host": "0.0.0.0",
+  "port": 25565,
+  "onlinemode": false,
+  "motd": "Limbo server.\nhttps://github.com/andriycraft/js-limbo/",
+  "hardcore": true,
+  "gamemode": 1,
+  "worldname": "minecraft:overworld"
+}
