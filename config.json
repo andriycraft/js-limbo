@@ -5,5 +5,7 @@
   "motd": "Limbo server.\nhttps://github.com/andriycraft/js-limbo/",
   "hardcore": true,
   "gamemode": 1,
-  "worldname": "minecraft:overworld"
+  "worldname": "minecraft:overworld",
+  "tabheader": "Limbo server.",
+  "tabfooter": "AC 2.0's limbo server"
 }
