@@ -9,5 +9,7 @@
   "tabheader": "Limbo server.",
   "tabfooter": "AC 2.0's limbo server",
   "maxPlayers": -1,
-  "welcomemsg": "Welcome to Limbo. This server is using JS-Limbo by andriycraft"
+  "welcomemsg": "Welcome to Limbo. This server is using JS-Limbo by andriycraft",
+  "enableLogging": true,
+  "enableConsole": true
 }
