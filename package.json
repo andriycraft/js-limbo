@@ -1,0 +1,15 @@
+{
+  "name": "js-limbo",
+  "version": "1.0.0",
+  "description": "Limbo for your Minecraft server, that is written in JS",
+  "main": "index.js",
+  "keywords": [
+    "limbo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "minecraft-protocol": "^1.35.1",
+    "prismarine-chunk": "^1.31.0"
+  }
+}
