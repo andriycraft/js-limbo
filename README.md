@@ -1,4 +1,4 @@
-How 2 use:
+### How 2 use:
 
 1. Download it
 2. Run: 'npm i minecraft-protocol'
