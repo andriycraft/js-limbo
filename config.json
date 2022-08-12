@@ -2,14 +2,16 @@
   "host": "0.0.0.0",
   "port": 25565,
   "onlinemode": false,
-  "motd": "Limbo server.\nhttps://github.com/andriycraft/js-limbo/",
+  "motd": "§eLimbo server.\nhttps://github.com/andriycraft/js-limbo/",
   "hardcore": true,
-  "gamemode": 1,
+  "gamemode": 2,
   "worldname": "minecraft:overworld",
-  "tabheader": "Limbo server.",
-  "tabfooter": "AC 2.0's limbo server",
+  "tabheader": "§eLimbo server.",
+  "tabfooter": "§eAC 2.0's limbo server",
   "maxPlayers": -1,
-  "welcomemsg": "Welcome to Limbo. This server is using JS-Limbo by andriycraft",
+  "welcomemsg": "§eWelcome to Limbo. This server is using JS-Limbo by andriycraft",
   "enableLogging": true,
-  "enableConsole": true
+  "enableConsole": true,
+  "hubcommandtip": "§cWant to go back to lobby? Use /hub",
+  "favicon": "null"
 }

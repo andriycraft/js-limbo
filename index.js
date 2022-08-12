@@ -1,6 +1,7 @@
 const mc = require('minecraft-protocol')
 const Chunk = require('prismarine-chunk')('1.16.3')
 const Vec3 = require('vec3')
+const fs = require('fs')
 const config = require('./config.json')
 const server = mc.createServer({
   'online-mode': config.onlinemode,
@@ -9,7 +10,8 @@ const server = mc.createServer({
   port: config.port,
   motd: config.motd,
   version: '1.16.3',
-  maxPlayers: config.maxPlayers
+  maxPlayers: config.maxPlayers,
+  favicon: config.favicon
 })
 const mcData = require('minecraft-data')(server.version)
 const loginPacket = mcData.loginPacket
@@ -30,6 +32,7 @@ function chat(client, message) {
 }
 
 
+
 const date = new Date()
 const id = Math.floor(Math.random() * 1000000)
 
@@ -41,7 +44,21 @@ function log(message, type) {
   console.log(`${type}: ${message}`)
 }
 
+log('Limbo server started on port ' + config.port, 'info')
+log('To enable /hub command u must have some hub plugin installed on bungeecord/velocity proxy!', 'WARNING')
+
+
+process.on('uncaughtException', function (err) {
+  log(`An error while running \n: ${err.stack}`, 'error')
+})
+
+process.on('unhandledRejection', function (promise) {
+  log(`An error while running \n: ${promise}`, 'error')
+})
+
+
 server.on('login', function (client) {
+  log('Player ' + client.username + ' connected with UUID: ' + client.uuid + ' IP: ' + client.socket.remoteAddress, 'info')
   client.write('login', {
     entityId: client.id,
     isHardcore: config.hardcore,
@@ -96,5 +113,15 @@ server.on('login', function (client) {
     yaw: 137,
     pitch: 0,
     flags: 0x00
+  })
+
+  client.on('chat', (packet) => {
+    if (packet.message.startsWith('/')) {
+      chat(client, config.hubcommandtip)
+    }
+  })
+
+  client.on('end', (client) => {
+    log(client.username + ' left', 'info')
   })
 })
