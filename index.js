@@ -128,11 +128,13 @@ server.on('login', function (client) {
 
   client.on('chat', (packet) => {
     if (packet.message.length > 256) {
-      client.end(config.kick_baddata.replace('%error%', config.kick_baddata))
+      log(client.username + ' was kicked for sending message that is veryyyyyyyyyy long', 'info')
+      client.end(config.kick_baddata.replace('%error%', config.errors_msgtoolong))
       return
     }
     if (packet.message.length = 0) {
-      client.end(config.kick_baddata.replace('%error%', config.kick_invalidmessage))
+      log(client.username + ' was kicked for sending invalid message', 'warning')
+      client.end(config.kick_baddata.replace('%error%', config.errors_invalidmessage))
       return
     }
     if (packet.message.startsWith('/')) {
