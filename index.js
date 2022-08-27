@@ -131,6 +131,10 @@ server.on('login', function (client) {
       client.end(config.kick_baddata.replace('%error%', config.kick_baddata))
       return
     }
+    if (packet.message.length = 0) {
+      client.end(config.kick_baddata.replace('%error%', config.kick_invalidmessage))
+      return
+    }
     if (packet.message.startsWith('/')) {
       chat(client, config.hubcommandtip)
     } else {
