@@ -45,7 +45,7 @@ function log(message, type) {
 }
 
 log('Limbo server started on port ' + config.port, 'info')
-log('To enable /hub command u must have some hub plugin installed on bungeecord/velocity proxy!', 'WARNING')
+log('To enable /hub command you must have some hub plugin installed on bungeecord/velocity proxy!', 'warning')
 
 
 process.on('uncaughtException', function (err) {
