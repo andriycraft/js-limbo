@@ -14,7 +14,8 @@
   "enableConsole": true,
   "hubcommandtip": "§cWant to go back to lobby? Use /hub",
   "kick_baddata": "§cBad packet data. %error%",
-  "errors_msgtoolong": "Message too long"
+  "errors_msgtoolong": "Message too long",
+  "errors_invalidmessage": "Invalid message length (0 symbols, impossible to send via vanilla minecraft client)",
   "favicon": "null",
   "chat_enabled": true,
   "chatformat": "<%player> %message"
