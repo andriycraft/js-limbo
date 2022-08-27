@@ -7,7 +7,7 @@
   "gamemode": 2,
   "worldname": "minecraft:overworld",
   "tabheader": "§eLimbo server.",
-  "tabfooter": "§eAC 2.0's limbo server",
+  "tabfooter": "§cWelcome to Limbo. /hub to exit",
   "maxPlayers": -1,
   "welcomemsg": "§eWelcome to Limbo. This server is using JS-Limbo by andriycraft",
   "enableLogging": true,
