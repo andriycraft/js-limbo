@@ -127,9 +127,14 @@ server.on('login', function (client) {
   })
 
   client.on('chat', (packet) => {
+    if (packet.message.length > 256) {
+      client.end(config.kick_baddata)
+      return
+    }
     if (packet.message.startsWith('/')) {
       chat(client, config.hubcommandtip)
     } else {
+      if (!config.chat_enabled) { return }
       broadcast(config.chatformat.replace('%player', client.username).config.chatformat.replace('%message', packet.message) )
     }
   })
