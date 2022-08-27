@@ -14,5 +14,6 @@
   "enableConsole": true,
   "hubcommandtip": "§cWant to go back to lobby? Use /hub",
   "favicon": "null",
+  "chat_enabled": true,
   "chatformat": "<%player> %message"
 }
