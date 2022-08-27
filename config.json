@@ -13,7 +13,8 @@
   "enableLogging": true,
   "enableConsole": true,
   "hubcommandtip": "§cWant to go back to lobby? Use /hub",
-  "kick_baddata": "§cBad packet data. %error%"
+  "kick_baddata": "§cBad packet data. %error%",
+  "errors_msgtoolong": "Message too long"
   "favicon": "null",
   "chat_enabled": true,
   "chatformat": "<%player> %message"
