@@ -56,6 +56,20 @@ process.on('unhandledRejection', function (promise) {
   log(`An error while running \n: ${promise}`, 'error')
 })
 
+function broadcast(message, exclude) {
+  let client
+  for (const clientId in server.clients) {
+    if (server.clients[clientId] === undefined) continue
+
+    client = server.clients[clientId]
+    if (client !== exclude) {
+      const msg = {
+        text: `${message}`
+      }
+      client.write('chat', { message: JSON.stringify(msg), position: 0, sender: '0' })
+    }
+  }
+}
 
 server.on('login', function (client) {
   log('Player ' + client.username + ' connected with UUID: ' + client.uuid + ' IP: ' + client.socket.remoteAddress, 'info')
