@@ -9,7 +9,7 @@ const server = mc.createServer({
   host: config.host,
   port: config.port,
   motd: config.motd,
-  version: '1.16.3',
+  version: '1.16.5',
   maxPlayers: config.maxPlayers,
   favicon: config.favicon
 })
