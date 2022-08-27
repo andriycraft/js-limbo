@@ -128,7 +128,7 @@ server.on('login', function (client) {
 
   client.on('chat', (packet) => {
     if (packet.message.length > 256) {
-      client.end(config.kick_baddata)
+      client.end(config.kick_baddata.replace('%error%', config.kick_baddata))
       return
     }
     if (packet.message.startsWith('/')) {
