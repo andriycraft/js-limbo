@@ -13,5 +13,6 @@
   "enableLogging": true,
   "enableConsole": true,
   "hubcommandtip": "§cWant to go back to lobby? Use /hub",
-  "favicon": "null"
+  "favicon": "null",
+  "chatformat": "<%player> %message"
 }
