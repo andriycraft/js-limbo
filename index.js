@@ -32,7 +32,6 @@ function chat(client, message) {
 }
 
 
-
 const date = new Date()
 const id = Math.floor(Math.random() * 1000000)
 
@@ -56,18 +55,16 @@ process.on('unhandledRejection', function (promise) {
   log(`An error while running \n: ${promise}`, 'error')
 })
 
-function broadcast(message, exclude) {
+function broadcast(message) {
   let client
   for (const clientId in server.clients) {
     if (server.clients[clientId] === undefined) continue
 
     client = server.clients[clientId]
-    if (client !== exclude) {
-      const msg = {
-        text: `${message}`
-      }
-      client.write('chat', { message: JSON.stringify(msg), position: 0, sender: '0' })
+    const msg = {
+      text: `${message}`
     }
+    client.write('chat', { message: JSON.stringify(msg), position: 0, sender: '0' })
   }
 }
 
@@ -132,6 +129,8 @@ server.on('login', function (client) {
   client.on('chat', (packet) => {
     if (packet.message.startsWith('/')) {
       chat(client, config.hubcommandtip)
+    } else {
+      broadcast(config.chatformat.replace('%player', client.username).config.chatformat.replace('%message', packet.message) )
     }
   })
 
